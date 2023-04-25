@@ -1,0 +1,23 @@
+{
+  "name": "blinddate-frontend",
+  "version": "1.0.0",
+  "description": "대학생 블라인드 소개팅 서비스",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sangyunpark99/BlindDate.git"
+  },
+  "author": "SangYun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sangyunpark99/BlindDate/issues"
+  },
+  "homepage": "https://github.com/sangyunpark99/BlindDate#readme",
+  "dependencies": {
+    "next": "^9.5.5"
+  }
+}
