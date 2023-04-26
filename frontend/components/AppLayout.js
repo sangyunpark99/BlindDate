@@ -3,7 +3,8 @@ import PropTyes from "prop-types";
 import Link from "next/link";
 import { Col, Menu, Row } from "antd";
 import LoginForm from "./LoginForm";
-import Profile from "./Profile";
+import UserProfile from "./UserProfile";
+import Profile from "../pages/profile";
 
 const AppLayout = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,13 +21,13 @@ const AppLayout = ({ children }) => {
       <Row gutter={10}>
         <Col xs={24} md={6}>
           {isLoggedIn ? (
-            <Profile setIsLoggedIn={setIsLoggedIn} />
+            <UserProfile setIsLoggedIn={setIsLoggedIn} />
           ) : (
             <LoginForm setIsLoggedIn={setIsLoggedIn} />
           )}
         </Col>
         <Col xs={24} md={12}>
-          가운데 메뉴
+          <Profile />
         </Col>
         <Col xs={24} md={6}>
           오른쪽 메뉴

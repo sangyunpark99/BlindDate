@@ -23,7 +23,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
   const onSubmitForm = useCallback(
     (e) => {
-      console.log(id, password);
       setIsLoggedIn(true);
     },
     [id, password]

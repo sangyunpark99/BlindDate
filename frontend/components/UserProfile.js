@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
 
-const Profile = ({ setIsLoggedIn }) => {
+const UserProfile = ({ setIsLoggedIn }) => {
   const onLogOut = useCallback((e) => {
     setIsLoggedIn(false);
   });
@@ -10,13 +10,16 @@ const Profile = ({ setIsLoggedIn }) => {
     <Card
       actions={[
         <div key="twit">
-          sweet <br /> 0
+          전공 <br /> 컴퓨터공학과
         </div>,
         <div key="followings">
-          팔로잉 <br /> 0
+          학번 <br /> 2018
         </div>,
         <div key="followers">
-          팔로워 <br /> 0
+          나이 <br /> 24
+        </div>,
+        <div key="manner">
+          매너온도 <br /> 36.5
         </div>,
       ]}
     >
@@ -26,4 +29,4 @@ const Profile = ({ setIsLoggedIn }) => {
   );
 };
 
-export default Profile;
+export default UserProfile;
