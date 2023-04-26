@@ -2,28 +2,21 @@ import React, { useState, useCallback } from "react";
 import { Form, Input, Button, Space } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import useInput from "../hooks/useinput";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
 const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onChangeId = useCallback((e) => {
-    const id = e.target.value;
-    setId(id);
-  }, []);
-
-  const onChangePassword = useCallback((e) => {
-    const password = e.target.value;
-    setPassword(password);
-  }, []);
+  const [id, onChangeId] = useInput("");
+  const [password, onChangePassword] = useInput("");
 
   const onSubmitForm = useCallback(
     (e) => {
       setIsLoggedIn(true);
+      console.log(id, password);
     },
     [id, password]
   );
@@ -59,6 +52,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </ButtonWrapper>
     </Form>
   );
+};
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

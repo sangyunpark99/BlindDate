@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Col, Menu, Row } from "antd";
 import LoginForm from "./LoginForm";
 import UserProfile from "./UserProfile";
-import Profile from "../pages/profile";
+import SignUp from "../pages/signup";
 
 const AppLayout = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +27,7 @@ const AppLayout = ({ children }) => {
           )}
         </Col>
         <Col xs={24} md={12}>
-          <Profile />
+          <SignUp />
         </Col>
         <Col xs={24} md={6}>
           오른쪽 메뉴
