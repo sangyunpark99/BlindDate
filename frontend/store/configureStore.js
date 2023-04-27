@@ -1,8 +1,21 @@
 import { createWrapper } from "next-redux-wrapper";
-import { createStore } from "react-redux";
+import {
+  applyMiddleware,
+  legacy_createStore as createStore,
+  compose,
+} from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reducer from "../reducers";
 
 const configureStore = () => {
-  const store = createStore(reducer);
+  const middlewares = [];
+
+  // state, reducer 포함
+  const enhancer =
+    process.env.NODE_ENV === "production"
+      ? compose(applyMiddleware(...middlewares))
+      : composeWithDevTools(applyMiddleware(...middlewares));
+  const store = createStore(reducer, enhancer); // reducer 등록
   return store;
 };
 

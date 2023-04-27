@@ -1,33 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTyes from "prop-types";
-import Link from "next/link";
-import { Col, Menu, Row } from "antd";
+import { Col, Row } from "antd";
 import LoginForm from "./LoginForm";
 import UserProfile from "./UserProfile";
-import SignUp from "../pages/signup";
+import { useSelector } from "react-redux";
 
 const AppLayout = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
     <div>
-      <Menu mode="horizontal">
-        <Menu.Item>
-          <Link href="/login">
-            <a>로그인</a>
-          </Link>
-        </Menu.Item>
-      </Menu>
       <Row gutter={10}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
-          )}
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
-          <SignUp />
+          {isLoggedIn ? <>Hello!!</> : <>로그인이 필요합니다.</>}
         </Col>
         <Col xs={24} md={6}>
           오른쪽 메뉴

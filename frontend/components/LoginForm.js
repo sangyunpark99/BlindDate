@@ -1,21 +1,25 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { Form, Input, Button, Space } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useinput";
+import { loginAction } from "../reducers";
+import { useDispatch } from "react-redux";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const [id, onChangeId] = useInput("");
   const [password, onChangePassword] = useInput("");
 
   const onSubmitForm = useCallback(
     (e) => {
-      setIsLoggedIn(true);
+      dispatch(loginAction({ id, password }));
       console.log(id, password);
     },
     [id, password]
