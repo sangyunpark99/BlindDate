@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
 import { useDispatch } from "react-redux";
-import { logoutAction } from "../reducers";
+import { logoutAction } from "../reducers/user";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ const UserProfile = () => {
 
   return (
     <Card
+      style={{ marginTop: 10 }}
       actions={[
         <div key="twit">
           전공 <br /> 컴퓨터공학과

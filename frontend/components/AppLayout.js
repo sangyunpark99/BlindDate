@@ -2,6 +2,7 @@ import React from "react";
 import PropTyes from "prop-types";
 import { Col, Row } from "antd";
 import LoginForm from "./LoginForm";
+import Chat from "./Chat";
 import UserProfile from "./UserProfile";
 import { useSelector } from "react-redux";
 
@@ -11,17 +12,16 @@ const AppLayout = ({ children }) => {
   return (
     <div>
       <Row gutter={10}>
-        <Col xs={24} md={6}>
+        <Col xs={24} md={5}>
           {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
-        <Col xs={24} md={12}>
-          {isLoggedIn ? <>Hello!!</> : <>로그인이 필요합니다.</>}
+        <Col xs={24} md={12} style={{ padding: 0 }}>
+          {isLoggedIn ? children : <>로그인 해주세요!</>}
         </Col>
-        <Col xs={24} md={6}>
-          오른쪽 메뉴
+        <Col xs={24} md={7} style={{ padding: 0 }}>
+          {isLoggedIn ? <Chat /> : <>로그인 해주세요!</>}
         </Col>
       </Row>
-      {children}
     </div>
   );
 };

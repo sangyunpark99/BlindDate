@@ -1,10 +1,9 @@
 import React, { useCallback } from "react";
 import { Form, Input, Button, Space } from "antd";
-import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useinput";
-import { loginAction } from "../reducers";
+import { loginAction } from "../reducers/user";
 import { useDispatch } from "react-redux";
 
 const ButtonWrapper = styled.div`
@@ -47,11 +46,6 @@ const LoginForm = () => {
           <Button type="primary" htmlType="submit">
             로그인
           </Button>
-          <Link href="/login">
-            <a>
-              <Button>회원가입</Button>
-            </a>
-          </Link>
         </Space>
       </ButtonWrapper>
     </Form>
